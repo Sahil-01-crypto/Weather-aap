@@ -3,7 +3,6 @@ const apiurl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q="
 
 
 const srchbox = document.querySelector(".searchcont input")
-
 const srchbtn = document.querySelector(".searchcont button ")
 
 async function chekWeather(city) {
@@ -84,6 +83,12 @@ document.querySelector(".sunset").textContent  = getLocalTime(data.sys.sunset, d
 }
 
 srchbtn.addEventListener("click", function () {
-    chekWeather(srchbox.value)
+    chekWeather(srchbox.value.trim())
+})
+
+srchbox.addEventListener("keydown" , function(e){
+    if(e.key==="Enter"){
+        chekWeather(srchbox.value .trim())
+    }
 })
 
